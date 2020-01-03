@@ -1,5 +1,0 @@
-[
-        { text: 'Computer Science 1.1', value: 'cs11' },
-        { text: 'Computer Science 1.2', value: 'cs12' },
-        { text: 'Computer Science 1.3', value: 'cs13' }
-]

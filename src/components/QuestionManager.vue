@@ -3,8 +3,11 @@
         <p>Score: {{score}}</p>
         <p>Max Possible: {{max}}</p>
 
-        <div>
+        <div v-if="end === false">
             <Question v-bind:question="questions[index]" v-on:next="nextQuestion" />
+        </div>
+        <div v-else>
+          <p>Please choose another topic!</p>
         </div>
     </div>
 </template>
@@ -20,6 +23,7 @@ export default {
       this.score = 0;
       this.index = 0;
       this.max = this.questions.length;
+      this.end = false;
   } },
   components: {
     Question
@@ -29,7 +33,8 @@ export default {
       //questions - appears here after creation and load
       score:0,
       index:0,
-      max:0
+      max:0,
+      end:0
     }
   },
   methods:{
@@ -38,6 +43,7 @@ export default {
       this.index +=1;
       if (this.index > (this.questions.length -1)){
         this.index = 0;
+        this.end = true;
       }
     }
   },
@@ -46,6 +52,7 @@ export default {
     this.questions = new Array();
     this.questions = require("../data/" + this.topic + ".json");
     this.max = this.questions.length;
+    this.end = false;
   }
 }
 </script>
