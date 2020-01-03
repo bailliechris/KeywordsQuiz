@@ -1,0 +1,13 @@
+[
+{"word":"MAR","def":"Holds the position in memory of the next instruction"},
+{"word":"MDR","def":"Holds the current data collected from memory"},
+{"word":"PC","def":"Keeps track of the position in the current program"},
+{"word":"ACC","def":"Stores the results of sums done by the ALU"},
+{"word":"ALU","def":"Does the sums in the CPU"},
+{"word":"CU","def":"Decides what to do with instructions"},
+{"word":"Cache","def":"Stores the most recently used instructions and data"},
+{"word":"FDE Cycle","def":"The order instructions that take place in the CPU"},
+{"word":"Clock Speed","def":"The frequency of the processor."},
+{"word":"Cache","def":"Very fast volatile memory as part of the CPU"},
+{"word":"Cores","def":"More instructions per second as there are more groups of FDE cycles happening at once."},{"word":"Embedded System","def":"A system inside a device dedicated to that particular system"}
+]

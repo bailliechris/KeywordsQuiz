@@ -1,0 +1,6 @@
+[
+    {"word":"ROM","def":"Used to store the instructions to get the computer started. Non-volatile - Keeps information when it has no power."},
+    {"word":"RAM","def":"Used for fast recovery of data and instructions. Volatile - Will lose the information when there is no power."},
+    {"word":"Virtual Memory","def":"If you run out of RAM capacity the computer will start using secondary storage as __________ __________. This is very slow compared to RAM."},
+    {"word":"Flash Memory","def":"Solid State Memory like memory sticks and SSDs."}
+]
