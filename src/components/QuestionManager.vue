@@ -1,10 +1,12 @@
 <template>
     <div>
-        <p>Score: {{score}}</p>
-        <p>Max Possible: {{max}}</p>
+        <p>Score: {{score}} / {{max}}</p>
 
         <div v-if="end === false">
-            <Question v-bind:question="questions[index]" v-on:next="nextQuestion" />
+          <p class="questionNumber">
+            {{current}}
+          </p>
+          <Question v-bind:question="questions[index]" v-on:next="nextQuestion" />
         </div>
         <div v-else>
           <p>Please choose another topic!</p>
@@ -22,6 +24,7 @@ export default {
       this.questions = require("../data/" + this.topic + ".json");
       this.score = 0;
       this.index = 0;
+      this.current = 1;
       this.max = this.questions.length;
       this.end = false;
   } },
@@ -34,13 +37,15 @@ export default {
       score:0,
       index:0,
       max:0,
-      end:0
+      current:1,
+      end:false
     }
   },
   methods:{
     nextQuestion(scoreChange){
       this.score = this.score + scoreChange;
       this.index +=1;
+      this.current +=1;
       if (this.index > (this.questions.length -1)){
         this.index = 0;
         this.end = true;
@@ -58,5 +63,12 @@ export default {
 </script>
 
 <style scoped>
-
+.questionNumber{
+  font-size: 2rem;
+  font-style:oblique;
+  color:orange;
+  background:darkslategrey;
+  max-width:50%;
+  margin:auto;
+}
 </style>

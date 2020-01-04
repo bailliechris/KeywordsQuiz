@@ -1,0 +1,14 @@
+[
+{"word":"LAN","def":"A network of computers within a small area (home or school networks)"},
+{"word":"WAN","def":"A collection of LANs linked together - The internet!"},
+{"word":"PAN","def":"Network using the “hotspot” feature from a phone"},
+{"word":"Peer to peer","def":"A network where all computers are managed individually. (A home network)."},
+{"word":"Client Server","def":"Like school where all computers are managed centrally you have to log on to get access to your drive. You can access your work from any computer on the network."},
+{"word":"Wireless Access Points","def":"A device that allows Wifi access to a network (it transmits and receives Wifi signals)"},
+{"word":"Routers","def":"This device allows data to be sent and received via a WAN."},
+{"word":"NIC","def":"The component that allows you to connect to a network. This could be a Wifi card or have a socket that allows you to plug a network cable in."},{"word":"Transmission Media","def":"A fancy name for cable or wireless connection between devices."},
+{"word":"DNS","def":"The internet telephone directory that links URLs to IP Addresses"},
+{"word":"Hosting","def":"A host - a server that runs programs or stores files for other computers to access (May also host a website)"},
+{"word":"The Cloud","def":"A server or collection of servers that host information or programs (iCloud is just a set of servers somewhere in the world with your data on them). ."},
+{"word":"Virtual Networks","def":"A private network of computers connected on a larger network which is invisible to anyone not on that network."}
+]

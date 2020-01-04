@@ -1,5 +1,15 @@
 [
-{ "text": "Computer Science 1.1", "value": "cs11" },
-{ "text": "Computer Science 1.2", "value": "cs12" },
-{ "text": "Computer Science 1.3", "value": "cs13" }
+{ "text": "1.1 System Architecture", "value": "cs11" },
+{ "text": "1.2 Memory", "value": "cs12" },
+{ "text": "1.3 Storage", "value": "cs13" },
+{ "text": "1.4 Wired and Wireless Networks", "value": "cs14"},
+{ "text": "1.5 Networks, Protocols and Layers", "value": "cs15"},
+{ "text": "1.6 Network Security", "value": "cs16"},
+{ "text": "1.7 Operating Systems", "value": "cs17"},
+{ "text": "1.8 Legal and Ethical Considerations", "value": "cs18"},
+{ "text": "2.1 Algorithms", "value": "cs21"},
+{ "text": "2.2 Programming Techniques", "value": "cs22"},
+{ "text": "2.3 Designing Robust Programs", "value": "cs23"},
+{ "text": "2.4 Compilers and Others", "value": "cs24"},
+{ "text": "All Topics", "value": "cs25"}
 ]

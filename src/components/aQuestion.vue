@@ -3,7 +3,7 @@
         <h1 class="questionText">{{question.def}}</h1>
         <form @submit="answerQuestion" class="form">
             <input type="text" class="answerBox" placeholder="Answer..." v-model="qAnswer">
-            <input type="button" v-on:click="answerQuestion" class="questionButton" value="Answer">
+            <input type="button" v-on:click="answerQuestion" class="questionButton" value="Submit">
             <input type="button" v-on:click="$emit('next', 0)" class="skip" value="Skip">
         </form>
     </div>
@@ -21,7 +21,7 @@ export default {
     methods:{
         answerQuestion(e){
             e.preventDefault();
-            if (this.qAnswer === this.question.word){
+            if (this.qAnswer.toLowerCase() === this.question.word.toLowerCase()){
                 this.$emit('next', 1);
                 this.qAnswer = "";
             }
@@ -44,6 +44,7 @@ export default {
     align-items: center;
     justify-content: space-around;
     order: 4;
+    max-width: 10%;
     flex: 1;
 }
 
@@ -51,6 +52,7 @@ export default {
     display:flex;
     align-items: center;
     flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 
 .skip {
@@ -64,6 +66,7 @@ export default {
     cursor: pointer;
     flex:1;
     order: 1;
+    max-width:10%;
 }
 .questionText{
     color:darkslategray;
@@ -79,7 +82,8 @@ export default {
     padding:10px;
     justify-content: space-around;
     text-align: center;
-    flex:25;
+    flex:10;
+    max-width: 50%;
     order: 3;
 }
 </style>
