@@ -1,32 +1,25 @@
 <template>
-    <header class="header">
-        <h1>GCSE Computer Science Key Terms Quiz</h1>
-        <p>OCR J276</p>
-    </header>
+<section class="hero is-info">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Keyword Quiz
+      </h1>
+      <h2 class="subtitle">
+        GCSE Computer Science
+      </h2>
+    </div>
+  </div>
+</section>
 </template>
 
 <script>
+
 export default {
     name: "Header"
 }
 </script>
 
 <style scoped>
-.header{
-    background:rgb(243, 161, 9);
-    color:white;
-    text-align:center;
-    margin: auto;
-    padding: 10px;
-    font-size:1.5rem;
-}
 
-.header a{
-    color: white;
-    padding-right:5px;
-}
-
-.header p{
-    font-size:1rem;
-}
 </style>

@@ -1,17 +1,18 @@
 <template>
-    <div>
-        <p>Score: {{score}} / {{max}}</p>
-
-        <div v-if="end === false">
-          <p class="questionNumber">
-            {{current}}
-          </p>
-          <Question v-bind:question="questions[index]" v-on:next="nextQuestion" />
-        </div>
-        <div v-else>
-          <p>Please choose another topic!</p>
-        </div>
+  <section class="section">
+    <div class="box">
+      <div v-if="end === false">
+        <h2 class="title is-4"> Question - 
+          {{current}} </h2>
+        <h3 class="subtitle is-5">Score: {{score}} / {{max}}
+        </h3>
+        <Question v-bind:question="questions[index]" v-on:next="nextQuestion" />
+      </div>
+      <div v-else>
+        <p>Please choose another topic!</p>
+      </div>
     </div>
+  </section>
 </template>
 
 <script>
@@ -63,12 +64,6 @@ export default {
 </script>
 
 <style scoped>
-.questionNumber{
-  font-size: 2rem;
-  font-style:oblique;
-  color:orange;
-  background:darkslategrey;
-  max-width:50%;
-  margin:auto;
-}
+
+
 </style>
