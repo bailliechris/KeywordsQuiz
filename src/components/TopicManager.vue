@@ -3,7 +3,7 @@
     <nav class="level">
       <div class="level-left">
         <b-field label="Choose a Subject:">
-            <b-select v-model="subject" placeholder="Select a Subject" extended>
+            <b-select v-model="subject" placeholder="Select a Subject" simple>
               <option v-for="subject in subjects" v-bind:value="subject.value" v-bind:key="subject.value">
                   {{ subject.text }}
               </option>
@@ -14,7 +14,7 @@
         <div v-if="subject">
           <b-field label="Choose a Topic:">
             <b-select v-model="topic" placeholder="Select a Topic" simple>
-              <option v-for="topic in topics" v-bind:value="topic.value" v-bind:key="topic.value">
+              <option v-for="topic in topics" v-bind:value="topic" v-bind:key="topic.value">
                 {{ topic.text }}
               </option>
             </b-select>
