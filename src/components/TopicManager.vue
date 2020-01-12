@@ -1,7 +1,7 @@
 <template>
-  <div class = "box">
-    <nav class="level">
-      <div class="level-left">
+  <div class = "tile is-ancestor">
+    <div class= "tile is-4 is-vertical is-parent">
+      <div class = "tile is-child box">
         <b-field label="Choose a Subject:">
             <b-select v-model="subject" placeholder="Select a Subject" simple>
               <option v-for="subject in subjects" v-bind:value="subject.value" v-bind:key="subject.value">
@@ -10,7 +10,7 @@
             </b-select>
         </b-field>
       </div>
-      <div class="level-right">
+      <div class="tile is-child box">
         <div v-if="subject">
           <b-field label="Choose a Topic:">
             <b-select v-model="topic" placeholder="Select a Topic" simple>
@@ -21,11 +21,13 @@
           </b-field>
         </div>
       </div>
-    </nav>
+    </div>
 
-    <div class="block center">
-      <div v-if="topic">
-          <QuestionMan v-bind:topic="topic"/>
+    <div class="tile is-parent">
+      <div class="tile is-child box">
+        <div v-if="topic">
+            <QuestionMan v-bind:topic="topic"/>
+        </div>
       </div>
     </div>
   </div>

@@ -1,6 +1,5 @@
 <template>
   <section class="section">
-    <div class="box">
       <div v-if="end === false">
         <h2 class="title is-4"> {{topic.text}} Question - {{current}} </h2>
         <h3 class="subtitle is-5">Score: {{score}} / {{max}}</h3>
@@ -9,7 +8,6 @@
       <div v-if="end === true">
         <ScoresMan v-bind:result="score" v-bind:topic="topic.text" v-bind:max="max" />
       </div>
-    </div>
   </section>
 </template>
 

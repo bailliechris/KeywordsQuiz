@@ -1,0 +1,2 @@
+            <input type="text" v-model="name"/>{{name}}<br/>
+            <button type="button" v-on:click="add()">Add To Table</button>

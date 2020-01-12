@@ -4,9 +4,15 @@
       <div class="box">
         <h2 class="title is-4"> You scored: {{result}} of {{max}} in {{topic}}</h2>
         <form>
-            <input type="text" v-model="name"/>{{name}}<br/>
-            <button type="button" v-on:click="add()">Add To Table</button>
-            <button type="button" v-on:click="clear()">Clear Saves</button>
+          <b-field label="Name">
+            <b-input v-model="name"></b-input>
+          </b-field>
+          <button class="button is-medium is-success" @click="add">
+            Add Name to High Scores
+          </button>
+          <button class="button is-medium is-danger" @click="clear">
+            Clear Saves
+          </button>
         </form>
       </div>
     </div>
