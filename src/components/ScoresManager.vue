@@ -1,7 +1,6 @@
 <template>
   <div>
     <div v-if="nameadded===false">
-      <div class="box">
         <h2 class="title is-4"> You scored: {{result}} of {{max}} in {{topic}}</h2>
         <form>
           <b-field label="Name">
@@ -14,10 +13,9 @@
             Clear Saves
           </button>
         </form>
-      </div>
     </div>
     <div v-if="hasscores===true">
-      <h2 class="title is-4"> High Scores </h2>
+      <h2 class="title is-4"> Scores </h2>
       <ScoresTable v-bind:scorelist="scorelist" />
     </div>
   </div>
