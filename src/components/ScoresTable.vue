@@ -7,7 +7,9 @@
 <script>
 export default {
   name: 'ScoresTable',
-  props: ["scorelist"],
+  props: {
+    scorelist: {type: Array, required: true, }
+  }, 
   data(){
       return{
           columns: [

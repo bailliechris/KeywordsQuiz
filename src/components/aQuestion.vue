@@ -24,7 +24,7 @@ export default {
     name: "Question",
     props: {
         question: {type: Object, required: true, },
-        answers: {type: Object, required: true, },
+        answers: {type: Array, required: true, },
         correct: {type: String, required: true, }
     },
     data(){

@@ -6,10 +6,10 @@
           <b-field label="Name">
             <b-input v-model="name"></b-input>
           </b-field>
-          <button class="button is-medium is-success" @click="add">
+          <button type="submit" class="button is-medium is-success" @click="add">
             Add Name to High Scores
           </button>
-          <button class="button is-medium is-danger" @click="clear">
+          <button type="button" class="button is-medium is-danger" @click="clear">
             Clear Saves
           </button>
         </form>
@@ -22,8 +22,9 @@
 </template>
 
 <script>
-import uuid from "uuid";
+import uuid from "uuid"
 import ScoresTable from './ScoresTable'
+import axios from 'axios'
 
 export default {
   name: 'ScoresMan',
@@ -47,28 +48,36 @@ export default {
   },
 
   methods: {
+    // https://quiz-scores.herokuapp.com/api/scores
       add: function () {
-        this.scorelist.push({topic: this.topic, name: this.name, index: uuid.v4(), score: this.result, max: this.max});
-        const data = JSON.stringify(this.scorelist)
-        window.localStorage.setItem('scorelist', data);
+        
+        let data = {
+          "topic": this.topic, 
+          "name": this.name, 
+          "index": uuid.v4(), 
+          "score": this.result, 
+          "max": this.max
+          };
+        axios.post("https://quiz-scores.herokuapp.com/api/scores", data)
+        .then(res => this.scorelist = res.data);
+
         this.nameadded=true;
         this.hasscores=true;
       },
       clear: function() {
-        window.localStorage.removeItem('scorelist');
-        while (this.scorelist.length > 0){
-          this.scorelist.pop();
-        }
+        axios.delete("https://quiz-scores.herokuapp.com/api/scores");
         this.hasscores=false;
       }
   },
   created(){
-    if (JSON.parse(window.localStorage.getItem('scorelist')) !== null){
-       this.scorelist = JSON.parse(window.localStorage.getItem('scorelist'));
-       this.hasscores=true;
+    axios.get("https://quiz-scores.herokuapp.com/api/scores")
+      .then(res => this.scorelist = res.data);
+    
+    if(this.scorelist.length > 0){
+      this.hasscores = true;
+    } else {
+      this.hasscores = false;
     }
-
-    this.nameadded=false;
    
   } 
 }
