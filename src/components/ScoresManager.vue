@@ -9,9 +9,6 @@
           <button type="submit" class="button is-medium is-success" @click="add">
             Add Name to High Scores
           </button>
-          <button type="button" class="button is-medium is-danger" @click="clear">
-            Clear Saves
-          </button>
         </form>
     </div>
     <div v-if="hasscores===true">

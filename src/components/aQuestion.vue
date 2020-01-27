@@ -44,9 +44,10 @@ export default {
                 this.$buefy.dialog.alert({
                     title: 'Incorrect',
                     message: this.question.word + " : " + this.question.def,
+                    type: "is-dark",
                     confirmText: 'Ok'
                 })
-                this.$emit('next', -1);
+                this.$emit('next', 0);
                 this.qAnswer = "";
             }
         }
