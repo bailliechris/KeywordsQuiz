@@ -55,15 +55,11 @@ export default {
           "score": this.result, 
           "max": this.max
           };
-        axios.post("https://quiz-scores.herokuapp.com/api/scores", data)
-        .then(res => this.scorelist = res.data);
+        axios.post("https://quiz-scores.herokuapp.com/api/scores", data);
+        this.scorelist.push(data);
 
         this.nameadded=true;
         this.hasscores=true;
-      },
-      clear: function() {
-        axios.delete("https://quiz-scores.herokuapp.com/api/scores");
-        this.hasscores=false;
       }
   },
   created(){
