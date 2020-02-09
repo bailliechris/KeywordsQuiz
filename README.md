@@ -1,5 +1,7 @@
 # quiz
 
+Preview running at: https://wonderful-kowalevski-d77ec1.netlify.com/
+
 ## Project setup
 ```
 yarn install
