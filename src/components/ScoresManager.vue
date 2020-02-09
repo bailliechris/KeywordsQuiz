@@ -46,8 +46,9 @@ export default {
 
   methods: {
     // https://quiz-scores.herokuapp.com/api/scores
-      add: function () {
+      add: function (e) {
         
+        e.preventDefault();
         let data = {
           "topic": this.topic, 
           "name": this.name, 
@@ -55,8 +56,10 @@ export default {
           "score": this.result, 
           "max": this.max
           };
-        axios.post("https://quiz-scores.herokuapp.com/api/scores", data);
-        this.scorelist.push(data);
+
+        axios.post("https://quiz-scores.herokuapp.com/api/scores", data)
+        .then(this.scorelist.push(data));
+
 
         this.nameadded=true;
         this.hasscores=true;
@@ -64,14 +67,14 @@ export default {
   },
   created(){
     axios.get("https://quiz-scores.herokuapp.com/api/scores")
-      .then(res => this.scorelist = res.data);
-    
-    if(this.scorelist.length > 0){
-      this.hasscores = true;
-    } else {
-      this.hasscores = false;
-    }
-   
+      .then((res) => {
+        this.scorelist = res.data;
+        if(this.scorelist.length > 0) {
+          this.hasscores = true;
+        } else {
+          this.hasscores = false;
+        }   
+      });
   } 
 }
 </script>

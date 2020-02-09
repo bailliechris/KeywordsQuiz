@@ -1,4 +1,5 @@
 [
 { "text": "Computer Science", "value": "cstopiclist" },
-{ "text": "PE", "value": "petopiclist" }
+{ "text": "PE", "value": "petopiclist" },
+{ "text": "History", "value": "hstopiclist" }
 ]
