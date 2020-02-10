@@ -49,12 +49,14 @@ export default {
       add: function (e) {
         
         e.preventDefault();
+        let now = new Date();
         let data = {
           "topic": this.topic, 
           "name": this.name, 
           "index": uuid.v4(), 
           "score": this.result, 
-          "max": this.max
+          "max": this.max,
+          "time": now.toDateString()
           };
 
         axios.post("https://quiz-scores.herokuapp.com/api/scores", data)
