@@ -31,7 +31,7 @@
     <div class="tile is-parent">
       <div class="tile is-child container">
         <div v-if="topic">
-            <QuestionMan v-bind:topic="topic"/>
+            <QuestionMan v-bind:topic="topic" />
         </div>
       </div>
     </div>

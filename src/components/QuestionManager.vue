@@ -3,6 +3,10 @@
       <div v-if="end === false">
         <h2 class="title is-4"> {{topic.text}} Question - {{current}} </h2>
         <h3 class="subtitle is-5">Score: {{score}} / {{max}}</h3>
+
+        <b-button v-on:click="limitQuestions(1)" class="limitButton" type="is-warning">Limit to 20 Questions</b-button>
+        <b-button v-on:click="limitQuestions(0)" class="limitButton" type="is-info">All Questions</b-button>
+
         <Question v-bind:correct="correct" v-bind:answers="multiAnswers" v-bind:question="questions[index]" v-on:next="nextQuestion" />
       </div>
       <div v-if="end === true">
@@ -17,16 +21,14 @@ import ScoresMan from "./ScoresManager"
 
 export default {
   name: 'QuestionMan',
-  props: ["topic"],
-  watch: { topic: function () {
+  props: {
+        topic: {type: Object, required: true, }
+    },
+  watch: { 
+    topic: function () {
       this.questions = require("../data/" + this.topic.value + ".json");
-      this.score = 0;
-      this.index = 0;
-      this.current = 1;
-      this.max = this.questions.length;
-      this.end = false;
-      this.showscore = false;
-      this.generateAnswers();
+      this.questionsCopy = [...this.questions];
+      this.resetDetails();
     }
   },
   components: {
@@ -43,10 +45,40 @@ export default {
       end:false,
       showscore:false,
       multiAnswers: [],
-      correct:""
+      correct:"",
+      randomlimit:false,
+      questions:[],
+      questionsCopy:[]
     }
   },
   methods:{
+    resetTopic: function() {
+      this.questions = [...this.questionsCopy]
+    },
+
+    resetDetails: function() {
+      this.score = 0;
+      this.index = 0;
+      this.current = 1;
+      this.max = this.questions.length;
+      this.end = false;
+      this.showscore = false;
+      this.shuffleQuestions();
+      this.generateAnswers();
+    },
+
+    limitQuestions: function(i) {
+      if (i === 1 ) {
+        this.questions.splice(20, this.questions.length);
+        this.resetDetails();
+      }
+
+      if (i === 0 ) {
+        this.resetTopic();
+        this.resetDetails();
+      }
+    },
+
     nextQuestion: function (scoreChange)  {
       this.score = this.score + scoreChange;
       this.index +=1;
@@ -60,6 +92,14 @@ export default {
       else {
         this.generateAnswers();
       }
+    },
+
+    //Shuffle contents of loaded topic
+    shuffleQuestions: function() {
+        for (let i = this.questions.length - 1; i > 0; i--) {
+          let j = Math.floor(Math.random() * (i + 1));
+          [this.questions[i], this.questions[j]] = [this.questions[j], this.questions[i]];
+        }
     },
 
     generateAnswers: function() {
@@ -121,11 +161,12 @@ export default {
   },
 
   created(){
-    this.questions = new Array();
     this.questions = require("../data/" + this.topic.value + ".json");
+    this.questionsCopy = [...this.questions];
     this.max = this.questions.length;
     this.end = false;
     this.showscore = false;
+    this.shuffleQuestions();
     this.generateAnswers();
   }
 }

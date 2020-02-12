@@ -13,7 +13,7 @@
                     </b-field>
                 </div>
                 <b-button v-on:click="answerQuestion" class="questionButton" type="is-success">Submit</b-button>
-                <b-button v-on:click="$emit('next', 0)" class="skip" type="is-warning" outlined>Skip</b-button>
+                <b-button v-on:click="answerQuestion" class="skip" type="is-warning" outlined>Skip</b-button>
             </form>
         </div>
     </section>
