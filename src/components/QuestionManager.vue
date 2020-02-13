@@ -4,8 +4,12 @@
         <h2 class="title is-4"> {{topic.text}} Question - {{current}} </h2>
         <h3 class="subtitle is-5">Score: {{score}} / {{max}}</h3>
 
-        <b-button v-on:click="limitQuestions(1)" class="limitButton" type="is-warning">Limit to 20 Questions</b-button>
-        <b-button v-on:click="limitQuestions(0)" class="limitButton" type="is-info">All Questions</b-button>
+        <div v-if="max > 20">
+          <b-button v-on:click="limitQuestions(1)" class="limitButton" type="is-warning">Limit to 20 Questions</b-button>
+        </div>
+        <div v-if="limited === true">
+          <b-button v-on:click="limitQuestions(0)" class="limitButton" type="is-info">Return to All Questions</b-button>
+        </div>
 
         <Question v-bind:correct="correct" v-bind:answers="multiAnswers" v-bind:question="questions[index]" v-on:next="nextQuestion" />
       </div>
@@ -46,7 +50,7 @@ export default {
       showscore:false,
       multiAnswers: [],
       correct:"",
-      randomlimit:false,
+      limited:false,
       questions:[],
       questionsCopy:[]
     }
@@ -62,23 +66,30 @@ export default {
       this.current = 1;
       this.max = this.questions.length;
       this.end = false;
+      this.limit = false;
       this.showscore = false;
       this.shuffleQuestions();
       this.generateAnswers();
     },
 
+
+    //Limit questions to 20 (or return to the full list)
     limitQuestions: function(i) {
       if (i === 1 ) {
         this.questions.splice(20, this.questions.length);
         this.resetDetails();
+        this.limited = true;
       }
 
       if (i === 0 ) {
         this.resetTopic();
         this.resetDetails();
+        this.limited = false;
       }
     },
 
+    //Call on emit from Answer - change score and set up next question
+    //Or Set the end of that quiz section to launch the high score table
     nextQuestion: function (scoreChange)  {
       this.score = this.score + scoreChange;
       this.index +=1;
@@ -94,7 +105,7 @@ export default {
       }
     },
 
-    //Shuffle contents of loaded topic
+    //Shuffle contents of loaded topic array
     shuffleQuestions: function() {
         for (let i = this.questions.length - 1; i > 0; i--) {
           let j = Math.floor(Math.random() * (i + 1));
@@ -148,6 +159,7 @@ export default {
           ];
       }
 
+      //Create new answer array containing objects with an index and cloning the answer appropriately
       for(let i = 0; i<answerList.length; i++){
         templateAns.id = i;
         templateAns.a = answerList[i];

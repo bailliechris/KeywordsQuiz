@@ -4,7 +4,10 @@
         <h2 class="title is-4"> You scored: {{result}} of {{max}} in {{topic}}</h2>
         <form>
           <b-field label="Name">
-            <b-input v-model="name"></b-input>
+            <b-input v-model="name"
+              minlength="2"
+              maxlength="20">
+            </b-input>
           </b-field>
           <button type="submit" class="button is-medium is-success" @click="add">
             Add Name to High Scores
