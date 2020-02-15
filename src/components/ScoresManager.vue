@@ -48,7 +48,7 @@ export default {
   },
 
   methods: {
-    // https://quiz-scores.herokuapp.com/api/scores
+    // https://quiz-scores-admin.herokuapp.com/
       add: function (e) {
         
         e.preventDefault();
@@ -62,7 +62,7 @@ export default {
           "time": now.toDateString()
           };
 
-        axios.post("https://quiz-scores.herokuapp.com/api/scores", data)
+        axios.post("https://quiz-scores-admin.herokuapp.com/api/scores", data)
         .then(this.scorelist.push(data));
 
 
@@ -71,7 +71,7 @@ export default {
       }
   },
   created(){
-    axios.get("https://quiz-scores.herokuapp.com/api/scores")
+    axios.get("https://quiz-scores-admin.herokuapp.com/api/scores")
       .then((res) => {
         this.scorelist = res.data;
         if(this.scorelist.length > 0) {
