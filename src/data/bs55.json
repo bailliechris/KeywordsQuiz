@@ -1,0 +1,40 @@
+[{
+	"word": "Product Portfolio",
+	"def": "A collection of products that a firm produces"
+}, {
+	"word": "Boston Matrix",
+	"def": "A way of analysing a products share and growth in their market."
+}, {
+	"word": "Dog",
+	"def": "A product that has a low market share in a low growth market"
+}, {
+	"word": "Cash Cow",
+	"def": "A product that has a high market share in a low growth market"
+}, {
+	"word": "Question Mark",
+	"def": "A product that has a low market share in a fast growth market"
+}, {
+	"word": "Star",
+	"def": "A product that has a high market share in a fast growth market"
+}, {
+	"word": "Product Life Cycle",
+	"def": "Shows how the sales of a product may change over time"
+}, {
+	"word": "Extension Strategies",
+	"def": "Attempts to maintain the sales of a product and prevent it from entering the decline stage of the product life cycle."
+}, {
+	"word": "Price Skimming",
+	"def": "Setting a high price for a product when it first enters the market"
+}, {
+	"word": "Penetration Pricing",
+	"def": "Launching a new product at a low price to achieve fast sales"
+}, {
+	"word": "Competitive Pricing",
+	"def": "Matching the prices that competitors charge"
+}, {
+	"word": "Loss Leader",
+	"def": "A product sold at a loss in the hope that the customer will buy other items from the business where they make a profit"
+}, {
+	"word": "Cost Plus Pricing",
+	"def": "Where products are priced by covering the cost of it to the retailer and adding a percentage on top."
+}]

@@ -1,5 +1,6 @@
 [
-{ "text": "Computer Science", "value": "cstopiclist" },
-{ "text": "PE", "value": "petopiclist" },
-{ "text": "History", "value": "hstopiclist" }
+    { "text": "AQA GCSE Business Studies", "value": "bstopiclist" },
+    { "text": "OCR Computer Science", "value": "cstopiclist" },
+    { "text": "PE", "value": "petopiclist" },
+    { "text": "History", "value": "hstopiclist" }
 ]
